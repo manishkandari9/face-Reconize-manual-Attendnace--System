@@ -4,6 +4,8 @@ const authRoutes = require('./routes/authRoutes');
 const attendanceRoutes = require('./routes/attendanceRoutes');
 const assignmentRoutes = require("./routes/assignmentRoutes");
 const studentRoutes = require('./routes/studentRoutes');
+const path = require('path'); // Add this line at the top of your script
+
 
 // const faceStudentRoutes = require("./routes/faceStudentRoutes");
 // const faceAttendanceRoutes = require("./routes/faceAttendanceRoutes");
@@ -35,14 +37,12 @@ app.use("/api", studentRoutes);
 // app.use("/api/attendance", faceAttendanceRoutes);
 
 //---------deployment--------
-if(process.env.NODE_ENV === "production" ){
-    const dirPath = path.resolve();
+app.use(express.static(path.join(__dirname, 'build')));
 
-    app.use(express.static("./fronted/dist"));
-    app.get("*",(req,res) =>{
-        res.sendFile(path.resolve(dirPath,"fronted/dist", "index.html"));
-    })
-}
+app.get('/', function (req, res) {
+  res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
+
 
 
 // Start the server
