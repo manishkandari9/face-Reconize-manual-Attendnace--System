@@ -1,0 +1,97 @@
+
+.containerr {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #f4f7fa;
+  height: 100vh;
+  font-family: Arial, sans-serif;
+}
+
+
+.title {
+  font-size: 36px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+
+.video {
+  width: 80%;
+  max-width: 800px;
+  height: auto;
+  border: 3px solid #ddd;
+  margin-bottom: 20px;
+  border-radius: 8px;
+}
+
+
+.controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.btn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #45a049;
+}
+
+.switch-mode-btn {
+  background-color: #2196F3;
+}
+
+.switch-mode-btn:hover {
+  background-color: #1e88e5;
+}
+
+
+.input {
+  padding: 10px;
+  margin: 10px 0;
+  width: 200px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+
+.status {
+  font-size: 16px;
+  color: green;
+  font-weight: bold;
+}
+
+.register {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+.video {
+  position: relative;
+  width: 100%;
+  height: auto;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  pointer-events: none;
+}
