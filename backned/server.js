@@ -4,6 +4,8 @@ const authRoutes = require('./routes/authRoutes');
 const attendanceRoutes = require('./routes/attendanceRoutes');
 const assignmentRoutes = require("./routes/assignmentRoutes");
 const studentRoutes = require('./routes/studentRoutes');
+const path = require('path'); // Add this line at the top of your script
+
 
 // const faceStudentRoutes = require("./routes/faceStudentRoutes");
 // const faceAttendanceRoutes = require("./routes/faceAttendanceRoutes");
@@ -33,6 +35,15 @@ app.use("/api", studentRoutes);
 
 // app.use("/api/students", faceStudentRoutes);
 // app.use("/api/attendance", faceAttendanceRoutes);
+
+//---------deployment--------
+app.use(express.static(path.join(__dirname, 'build')));
+
+app.get('/', function (req, res) {
+  res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
+
+
 
 // Start the server
 const PORT = process.env.PORT || 3000;
