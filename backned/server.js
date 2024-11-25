@@ -34,6 +34,17 @@ app.use("/api", studentRoutes);
 // app.use("/api/students", faceStudentRoutes);
 // app.use("/api/attendance", faceAttendanceRoutes);
 
+//---------deployment--------
+if(process.env.NODE_ENV === "production" ){
+    const dirPath = path.resolve();
+
+    app.use(express.static("./fronted/dist"));
+    app.get("*",(req,res) =>{
+        res.sendFile(path.resolve(dirPath,"fronted/dist", "index.html"));
+    })
+}
+
+
 // Start the server
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
